@@ -2,7 +2,7 @@
 use BEAR\Package\Bootstrap;
 use BEAR\Resource\ResourceObject;
 
-return function (string $context, string $name = 'MyVendor\MyProject') : int {
+return function (string $context, string $name = 'Halnique\BearSunday') : int {
     $app = (new Bootstrap)->getApp($name, $context, __DIR__);
     if ($app->httpCache->isNotModified($_SERVER)) {
         $app->httpCache->transfer();

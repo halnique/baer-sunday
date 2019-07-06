@@ -1,5 +1,5 @@
 <?php
-namespace MyVendor\MyProject\Resource\Page;
+namespace Halnique\BearSunday\Resource\Page;
 
 use BEAR\Resource\ResourceObject;
 

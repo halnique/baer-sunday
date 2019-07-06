@@ -1,5 +1,5 @@
 <?php
-namespace MyVendor\MyProject\Module;
+namespace Halnique\BearSunday\Module;
 
 use BEAR\Sunday\Extension\Application\AbstractApp;
 

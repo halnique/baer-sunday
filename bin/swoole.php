@@ -6,7 +6,7 @@ if (! file_exists($bootstrap)) {
 }
 exit((require $bootstrap)(
     'prod-app',
-    'MyVendor\MyProject',
+    'Halnique\BearSunday',
     '127.0.0.1',
     '8080'
 ));
