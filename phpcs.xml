@@ -19,6 +19,9 @@
         <exclude name="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
         <exclude name="PEAR.Commenting.FileComment.Missing"/>
     </rule>
+    <rule name="Original">
+        <exclude name=""/>
+    </rule>
     <file>src</file>
     <file>tests</file>
     <exclude-pattern>tests/tmp/*</exclude-pattern>
