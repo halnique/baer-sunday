@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.3-fpm
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: sudo apt-get install -y libsqlite3-dev zlib1g-dev
+      - run: sudo docker-php-ext-install zip
+      - run: sudo composer self-update
+      - restore_cache:
+          keys:
+            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-
+      - run: composer install -n --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+      - run: touch testing.sqlite
+#      - run: migrate
+      - run: mkdir -p build/logs
+      - run: vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+      - run: php vendor/bin/php-coveralls
+      - store_artifacts:
+          path: build/logs/clover.xml
+          destination: test-results
